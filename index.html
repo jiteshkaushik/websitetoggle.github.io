@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            overflow-x: hidden;
+            background-color: #333;
+            color: #222;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container{
+            background-color: #fafafa;
+            transform-origin:top left ;
+            transition: transform 0.5s linear;
+            width: 70vw;
+            min-height: 50vh;
+            padding: 50px;
+
+        }
+        .container.show-nav{
+            transform: rotate(-10deg);
+        }
+        .circle-container{
+            position: fixed;
+            top: -100px;
+            left: -100px;
+
+        }
+        .circle{
+            background-color: #ff7979;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            position: relative;
+            transition: transform 0.5s linear;
+        }
+        .container.show-nav .circle{
+            transform: rotate(-70deg);
+        }
+        .circle button{
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 100px;
+            background: transparent;
+            border: 0;
+            font-size: 26px;
+            color: #fff;
+        }
+        .circle button:focus{
+            outline: none;
+
+        }
+        .circle button#open{
+            left: 60%;
+        }
+        .circle button#close{
+            top: 60%;
+            transform: rotate(70deg);
+            transform-origin:top left ;
+        }
+       .container.show-nav + nav li{
+        transform: translate(0);
+        transition-delay:0.3s ;
+       }
+        nav{
+            position: fixed;
+            bottom: 40px;
+            left: 0;
+            z-index: 100;
+        }
+        nav ul{
+            list-style-type: none;
+            padding-left: 30px;
+        }
+        nav ul li{
+            text-transform: uppercase;
+            color:#fff;
+            margin: 50px 0;
+            transform: translateX(-100%);
+            transition: transform 0.4s ease-in;
+        }
+        nav ul li i{
+            font-size: 20px ;
+            margin-right: -5px;
+        }
+        nav ul li + li{
+            margin-left: -5px;
+            transform: translateX(-150%);
+        }
+        nav ul li + li + li{
+            margin-left: -5px;
+            transform: translateX(-200%);
+        }
+
+        .content img{
+            width: 100%;
+            height: 30vh;
+          
+        }
+        .content{
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+        .content h1{
+            margin: 0;
+        }
+        .content small{
+            color: #555;
+            font-style: italic;
+        }
+        .content p{
+            color: #333;
+            line-height: 1.5;
+        }
+        ul li:hover{
+            color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container ">
+        <div class="circle-container">
+        <div class="circle">
+            <button id="close">
+                <i class="fas fa-times"></i>
+            </button>
+            <button id="open">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        </div>
+        <div class="content">
+            <h1>Amazing Article</h1>
+            <small>Florin Pop</small>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis tenetur consectetur error accusantium mollitia esse voluptate minus nesciunt vitae eaque quidem necessitatibus dolores voluptas, ab pariatur in distinctio quibusdam labore eveniet officia commodi iusto, libero non! Dicta doloremque magni ad quasi tempore, cupiditate, nulla enim non incidunt perferendis optio a nobis saepe recusandae tempora unde eum mollitia provident maiores voluptates amet! Facilis adipisci incidunt odit fugiat cum quis voluptates quia ea, dignissimos atque? Numquam adipisci, nobis cupiditate hic doloremque praesentium explicabo impedit tempore aperiam sint tempora minima, accusantium id blanditiis quos? Laboriosam eius animi id reprehenderit. Placeat sint tenetur exercitationem!</p>
+            <h3>My Dog</h3>
+            <img src="./alex1.jpg" alt="">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, nemo. Facilis eligendi commodi, vel sed officiis quos laboriosam magni numquam facere consequuntur doloremque rerum id cumque minus officia dolorem quis quisquam velit ullam consequatur explicabo? Deserunt, ipsa reiciendis odit cupiditate culpa eveniet cumque ratione dignissimos inventore. Repellat excepturi cum ipsam, aliquid dicta eaque vitae in quae unde nisi, eius ducimus aut. Ex accusantium odit deleniti iure necessitatibus illum doloribus dignissimos commodi vitae, sit animi iusto! Possimus repellendus laborum ratione, quod ipsum a excepturi quae quia iusto quisquam similique impedit officiis tempore sit deleniti debitis nobis id. Consequuntur temporibus officia tenetur?</p>
+        </div>
+     </div>
+   
+    <nav>
+        <ul>
+            <li><i class="fas fa-home"></i>Home</li>
+            <li><i class="fas fa-user-alt"></i>About</li>
+            <li><i class="fas fa-envelope"></i>Contact</li>
+
+        </ul>
+    </nav>
+    <script>
+        const open= document.getElementById('open')
+        const close = document.getElementById('close')
+        const container = document.querySelector('.container')
+        open.addEventListener('click', () => container.classList.add('show-nav'))
+
+        close.addEventListener('click',() =>container. classList.remove('show-nav'))
+        
+    </script>
+</body>
+</html>
